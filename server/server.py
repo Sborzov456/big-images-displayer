@@ -12,7 +12,7 @@ def home():
     return "home"
 
 @app.route('/<path:path>.dzi')
-def dzi():
+def dzi(path):
     slide = get_slide({'tile_size': 254, 'overlap': 1, 'limit_bounds': True})
     resp = make_response(slide.get_dzi('png'))
     resp.mimetype = 'application/xml'
@@ -20,7 +20,7 @@ def dzi():
 
 
 @app.route('/<path:path>_files/<int:level>/<int:col>_<int:row>.<format>')
-def tile(level, col, row, format):
+def tile(path, level, col, row, format):
     slide = get_slide({'tile_size': 254, 'overlap': 1, 'limit_bounds': True})
     format = format.lower()
     tile = slide.get_tile(level, (col, row))
