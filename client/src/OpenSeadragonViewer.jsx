@@ -16,14 +16,17 @@ const OpenSeadragonViewer = () => {
         );
     };
 
-    useEffect(() => {
-        InitOpenseadragon();
-      }, []);
+    useEffect(() => InitOpenseadragon, []);
 
+    
 
     return (
-        <div id="openSeaDragon" style={{ height: "800px", width: "1200px" }}> </div>
-        
+        <div>
+            <div id="openSeaDragon" style={{ height: "800px", width: "1200px" }}> </div>
+            {/* <button onClick={() => {
+                viewer.world.resetItams()
+            }}> Clear </button> */}
+        </div>
     );
 }
 
