@@ -1,12 +1,22 @@
+import flask
 from flask import Flask
 from flask import make_response
 from flask_cors import CORS
 from conversion import get_slide
 from io import BytesIO
 from configuration import *
+import os
+
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.route('/upload', methods=['POST'])
+def get_image():
+    image_file = flask.request.files['image']
+    path = os.path.join(UPLOAD_FOLDER, image_file.filename)
+    image_file.save(path)
+    return image_file.filename
 
 @app.route('/<path:path>.dzi')
 def dzi(path):

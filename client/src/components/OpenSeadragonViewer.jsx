@@ -1,33 +1,37 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import OpenSeaDragon from "openseadragon";
-import './styles/style.css'
+import '../styles/style.css'
 
-const OpenSeadragonViewer = () => {
+const OpenSeadragonViewer = ({image}) => {
 
     const [viewer, setViewer] = useState(null);
 
     const initOpenseadragon = () => {
+        console.log('in osd', image)
+        viewer && viewer.destroy()
         setViewer(
             OpenSeaDragon({
-                id: "openSeaDragon",
+                id: "openseadragon",
                 prefixUrl: "openseadragon-images/",
-                tileSources: 'http://localhost:8000/23-168-001.svs.dzi',
+                tileSources: `http://localhost:8000/${image}.dzi`,
                 zoomPerScroll: 1.2,
                 showNavigator: true,
             })
         );
     };
 
-    useEffect(() => initOpenseadragon, []);
-
+    useEffect(() => {
+        console.log(image)
+        if (image !== null){
+            initOpenseadragon()
+        }
+    },[image]);
     
-
     return (
-        <div>
-            <div id="openSeaDragon" style={{marginTop: 50, marginLeft: "auto", marginRight: "auto"}}> </div>
-        </div>
+        <div id="openseadragon"> 
         
+        </div> 
     );
 }
 

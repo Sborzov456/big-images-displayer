@@ -1,9 +1,20 @@
 import React from "react";
-import OpenSeadragonViewer from "./OpenSeadragonViewer";
+import {useState} from 'react'
+import OpenSeadragonViewer from "./components/OpenSeadragonViewer";
+import UploadImage from "./components/UploadImage"
 
 function App() {
+    const [image, setImage] = useState(null)
+
+    const getImage = (image) => {
+        setImage(image)
+    }
+
     return (
-        <OpenSeadragonViewer/>
+        <div id="main-page">
+            <OpenSeadragonViewer image={image}/>
+            <UploadImage sendImage={getImage}/>
+        </div> 
     );
 }
 
