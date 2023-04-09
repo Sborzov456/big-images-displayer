@@ -8,7 +8,6 @@ const SelectImage = ({sendImage}) => {
         const file = event.target.files[0]
         const formData = new FormData()
         formData.append('image', file, file.name)
-        console.log(file.name)
 
         fetch('http://localhost:8000/upload', {
             method: 'POST',

@@ -8,7 +8,6 @@ const OpenSeadragonViewer = ({image}) => {
     const [viewer, setViewer] = useState(null);
 
     const initOpenseadragon = () => {
-        console.log('in osd', image)
         viewer && viewer.destroy()
         setViewer(
             OpenSeaDragon({
