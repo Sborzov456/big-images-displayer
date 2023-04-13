@@ -26,3 +26,4 @@ client/yarn-error.log*
 server/venv
 server/svs/*
 server/upload/*
+server/test-img/*
