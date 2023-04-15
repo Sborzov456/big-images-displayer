@@ -4,12 +4,14 @@ import OpenSeaDragon from "openseadragon";
 import '../styles/style.css'
 import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
+import { useSelector } from 'react-redux';
 
 
-const OpenSeadragonViewer = ({image}) => {
+const OpenSeadragonViewer = () => {
 
     const [viewer, setViewer] = useState(null);
     const [anno, setAnno] = useState(null)
+    const image = useSelector(state => state.image)
 
     const initialize = () => {
         // init viewer

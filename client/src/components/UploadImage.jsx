@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { useDispatch } from "react-redux";
 
-const SelectImage = ({sendImage}) => {
+const SelectImage = () => {
+    const dispatch = useDispatch()
 
     const upload = (event) => {
         const file = event.target.files[0]
@@ -16,7 +18,7 @@ const SelectImage = ({sendImage}) => {
         })
         .then(response => response.text())
         .then(result => {
-            sendImage(result)
+            dispatch({type: 'UPDATE_IMAGE', payload: result})
         })
     }
 
