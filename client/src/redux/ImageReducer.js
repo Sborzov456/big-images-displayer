@@ -1,12 +1,15 @@
 
 const defaultState = {
-    image: ''
+    image: '',
+    viewer: null
 }
 
 const imageReducer = (state=defaultState, action) => {
     switch (action.type) {
         case 'UPDATE_IMAGE':
             return {...state, image: action.payload}
+        case 'SET_VIEWER':
+            return {...state, viewer: action.payload}
         default:
             return state
     }

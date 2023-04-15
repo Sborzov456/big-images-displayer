@@ -4,22 +4,15 @@ import OpenSeaDragon from "openseadragon";
 import '../styles/style.css'
 import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const OpenSeadragonViewer = () => {
 
     const [viewer, setViewer] = useState(null);
-    const [anno, setAnno] = useState(null)
     const image = useSelector(state => state.image)
+    const dispatch = useDispatch()
 
-    const initialize = () => {
-        // init viewer
-        const viewerState = initializeViewer()
-
-        //init annotations
-        initializeAnnotations(viewerState)
-    };
 
     const initializeViewer = () => {
         viewer && viewer.destroy()
@@ -36,24 +29,14 @@ const OpenSeadragonViewer = () => {
                 visibilityRatio: 1,
                 zoomPerScroll: 1.2
             })
+        dispatch({type: 'SET_VIEWER', payload: viewerState})
         setViewer(viewerState)
         return viewerState
     }
 
-    const initializeAnnotations = (viewer) => {
-        anno && anno.destroy()
-        const annotateState = Annotorious(viewer, {formatter});
-        annotateState.setDrawingTool('polygon')
-        setAnno(annotateState)
-    }
-
-    const formatter = (annotation) => {
-        return 'important'
-    }
-
     useEffect(() => {
         if (image) {
-            initialize()
+            initializeViewer()
         }
     },[image]);
     
