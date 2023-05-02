@@ -25,3 +25,14 @@ class BoxAdmin(admin.ModelAdmin):
 class TypeAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
+@admin.register(Correction)
+class CorrectionAdmin(admin.ModelAdmin):
+    list_display = ('correction', 'get_type', 'get_image_id')
+    
+    @admin.display(ordering='segmentation__type', description='Type')
+    def get_type(self, obj):
+        return obj.segmentation.type
+    
+    @admin.display(ordering='segmentation__image_id', description='Image ID')
+    def get_image_id(self, obj):
+        return obj.segmentation.image_id

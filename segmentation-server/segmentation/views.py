@@ -1,27 +1,11 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .models import Box, Segmentation
+from .models import Segmentation, Correction, Box
 from rest_framework.response import Response
-# Create your views here.
 from rest_framework import status
-from .utils import create_annotation
-from .serializers import SegmentationSerializer
+from .serializers import SegmentationSerializer, CorrectionSerializer
+from rest_framework import generics
 
-
-
-class AnnotationAPIView(APIView):
-    def get(self, request):
-        image_id = request.query_params['image_id']
-        type = request.query_params['type']
-        if type == 'all':
-            segmentations = Segmentation.objects.all().filter(image_id=image_id)
-        else:
-            segmentations = Segmentation.objects.all().filter(image_id=image_id, type=type)
-        boxes = Box.objects.all().filter(segmentation=segmentations).values()
-        annotations = []
-        for box in boxes:
-            annotations.append(create_annotation(box['x'], box['y'], box['width'], box['height'], box['id']))
-        return Response(annotations)
 
 class SegmentationAPIView(APIView):
     def get(self, request):
@@ -50,3 +34,11 @@ class SegmentationAPIView(APIView):
             serializer.save()
         
         return Response(status=status.HTTP_201_CREATED)
+
+
+class CorrectionAPIView(generics.ListCreateAPIView):
+    serializer_class = CorrectionSerializer
+
+    def get_queryset(self):
+        queryset = Correction.objects.all().filter(segmentation__image_id=self.request.query_params.get('image_id'))
+        return queryset

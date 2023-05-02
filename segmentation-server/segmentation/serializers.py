@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Box, Segmentation
+from .models import Box, Segmentation, Correction
 
 
 
@@ -24,3 +24,9 @@ class SegmentationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Segmentation
         fields = ['boxes', 'type', 'image_id']
+
+
+class CorrectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Correction
+        fields = '__all__'
