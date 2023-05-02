@@ -5,8 +5,8 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import imageReducer from './redux/ImageReducer';
 
-
 const store = createStore(imageReducer)
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

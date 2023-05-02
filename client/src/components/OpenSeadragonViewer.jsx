@@ -19,7 +19,7 @@ const OpenSeadragonViewer = () => {
         const viewerState = OpenSeaDragon({
                 id: "openseadragon",
                 prefixUrl: "openseadragon-images/",
-                tileSources: `http://localhost:8000/${image}.dzi`,
+                tileSources: `http://localhost:8001/${image}.dzi`,
                 showNavigator: true,
                 animationTime: 0.5,
                 blendTime: 0.1,

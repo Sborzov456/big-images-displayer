@@ -1,0 +1,25 @@
+[
+    {
+        "type":"Annotation",
+        "body":[
+            {
+                "type": "TextualBody",
+                "value": "comment",
+                "purpose": "commenting"
+            },
+            {
+                "type": "TextualBody",
+                "value": "tag",
+                "purpose": "tagging"
+            }],
+        "target": {
+            "source":"http://localhost:3000/result/undefined",
+            "selector": {
+                "type": "SvgSelector",
+                "value": "<svg><polygon points=\"100109.9578125,43382.37109375 120298.1953125,43249.25 127468.4609375,58359.37890625 89133.8671875,75417.265625 92952.3125,49588.875 93631.3515625,49333.9921875 93605.46875,49220.81640625\"></polygon></svg>"
+            }
+        },
+        "@context": "http://www.w3.org/ns/anno.jsonld",
+        "id": "1"
+    }
+]

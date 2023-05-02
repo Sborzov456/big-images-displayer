@@ -11,7 +11,7 @@ const SelectImage = () => {
         const formData = new FormData()
         formData.append('image', file, file.name)
 
-        fetch('http://localhost:8000/upload', {
+        fetch('http://localhost:8001/upload', {
             method: 'POST',
             "Content-Type": "multipart/form-data",
             body: formData

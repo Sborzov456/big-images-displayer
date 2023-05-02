@@ -1,0 +1,26 @@
+[
+    {
+        "type": "Annotation",
+        "body": [
+            { 
+                "type": "TextualBody", "value": "tag", 
+                "purpose": "commenting" 
+            },
+            { 
+                "type": "TextualBody", 
+                "value": "tag",
+                "purpose": "tagging" 
+            }
+        ],
+        "target": {
+            "source": "http://localhost:3000/undefined",
+            "selector": {
+                "type": "FragmentSelector",
+                "conformsTo": "http://www.w3.org/TR/media-frags/",
+                "value": "xywh=pixel:57077.84765625,9841.91015625,14489.39453125,19023.638671875"
+            }
+        },
+        "@context": "http://www.w3.org/ns/anno.jsonld",
+        "id": "#158af267-1266-444f-a60f-02bc31178d5f"
+    }
+]

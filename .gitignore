@@ -23,7 +23,10 @@ client/yarn-debug.log*
 client/yarn-error.log*
 
 
-server/venv
-server/svs/*
-server/upload/*
-server/test-img/*
+bid-server/upload/*
+bid-server/test-img/*
+/venv
+
+
+segmentation-server/segmentation/migrations
+segmentation-server/db.sqlite3

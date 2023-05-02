@@ -1,0 +1,98 @@
+{
+    "image_id": 0,
+    "segmentations":[
+        {
+            "boxes": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                }
+            ],
+            "type": "cellularity"
+        },
+        {
+            "boxes": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                }
+            ],
+            "type": "adequacy"
+        },
+        {
+            "boxes": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                }
+            ],
+            "type": "accumulation of tereocytes"
+        },
+        {
+            "boxes": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                }
+            ],
+            "type": "tereocytes"
+        },
+        {
+            "boxes": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                }
+            ],
+            "type": "oncocytes"
+        }
+        
+    ]
+
+}
