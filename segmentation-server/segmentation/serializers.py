@@ -1,29 +1,36 @@
 from rest_framework import serializers
-from .models import Box, Segmentation, Correction
+from .models import Polygon, Segmentation, Correction, Point
 
+class PointSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Point
+        fields = ['x', 'y']
+        write_only_fields = ['polygon']
 
+class PolygonSerializer(serializers.ModelSerializer):
 
-class BoxSerializer(serializers.ModelSerializer):
+    points = PointSerializer(many=True)
 
     class Meta:
-        model = Box
-        fields = ('x', 'y', 'width', 'height')
-        write_only_fields = ('segmentation', )
+        model = Polygon
+        fields = ['points']
+        write_only_fields = ['segmentation']
 
 class SegmentationSerializer(serializers.ModelSerializer):
 
-    boxes = BoxSerializer(many=True)
+    polygons = PolygonSerializer(many=True)
 
     def create(self, validated_data):
         segmentation = Segmentation.objects.create(image_id=validated_data['image_id'], type=validated_data['type'])
-        for box in validated_data['boxes']:
-            print(box)
-            Box.objects.create(**box, segmentation=segmentation)
+        for polygon in validated_data['polygons']:
+            new_polygon = Polygon.objects.create(segmentation=segmentation)
+            for point in polygon['points']:
+                Point.objects.create(**point, polygon=new_polygon)
         return segmentation
 
     class Meta:
         model = Segmentation
-        fields = ['boxes', 'type', 'image_id']
+        fields = ['polygons', 'type', 'image_id']
 
 
 class CorrectionSerializer(serializers.ModelSerializer):

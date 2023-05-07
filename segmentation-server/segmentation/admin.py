@@ -6,10 +6,14 @@ from .models import *
 class SegmentationAdmin(admin.ModelAdmin):
     list_display = ('image_id', 'type')
     
+@admin.register(Point)
+class PointAdmin(admin.ModelAdmin):
+    list_display = ('x', 'y')
 
-@admin.register(Box)
-class BoxAdmin(admin.ModelAdmin):
-    list_display = ('x', 'y', 'width', 'height', 'segmentation', 'get_type', 'get_image_id')
+
+@admin.register(Polygon)
+class PolygonAdmin(admin.ModelAdmin):
+    list_display = ('segmentation', 'get_type', 'get_image_id')
     search_fields = ['segmentation__id']
 
     @admin.display(ordering='segmentation__type', description='Type')

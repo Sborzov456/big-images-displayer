@@ -2,97 +2,39 @@
     "image_id": 0,
     "segmentations":[
         {
-            "boxes": [
+            "polygons": [
                 {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
+                   "points": [
+                        {
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "x": 1,
+                            "y": 1
+                        }
+                   ]
                 }
             ],
-            "type": "cellularity"
+            "type": "c"
         },
         {
-            "boxes": [
+            "polygons": [
                 {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                }
+                    "points": [
+                         {
+                             "x": 2,
+                             "y": 3
+                         },
+                         {
+                             "x": 6,
+                             "y": 8
+                         }
+                    ]
+                 }
             ],
-            "type": "adequacy"
-        },
-        {
-            "boxes": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                }
-            ],
-            "type": "accumulation of tereocytes"
-        },
-        {
-            "boxes": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                }
-            ],
-            "type": "tereocytes"
-        },
-        {
-            "boxes": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                },
-                {
-                    "x": 0,
-                    "y": 0,
-                    "width": 0,
-                    "height": 0
-                }
-            ],
-            "type": "oncocytes"
+            "type": "a"
         }
-        
     ]
 
 }

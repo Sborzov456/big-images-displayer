@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .models import Segmentation, Correction, Box
+from .models import Segmentation, Correction
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import SegmentationSerializer, CorrectionSerializer
@@ -18,7 +18,6 @@ class SegmentationAPIView(APIView):
         else:
             segmentations = Segmentation.objects.all().filter(image_id=image_id, type=type)
             serializer = SegmentationSerializer(segmentations, many=True)
-
         return Response({'segmentations' : serializer.data})
      
 
@@ -26,7 +25,7 @@ class SegmentationAPIView(APIView):
         data = request.data
         image_id = data['image_id']
         data = data['segmentations']
-        for segmentation in enumerate(data):
+        for segmentation in data:
             segmentation['image_id'] = image_id
             print(segmentation)
             serializer = SegmentationSerializer(data=segmentation)

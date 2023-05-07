@@ -16,16 +16,18 @@ class Segmentation(models.Model):
     def __str__(self) -> str:
         return f'Image: {self.image_id}; Type: {self.type}; Id: {self.id}'
 
-class Box(models.Model):
-    x = models.IntegerField(default=0)
-    y = models.IntegerField(default=0)
-    width = models.IntegerField(default=0)
-    height = models.IntegerField(default=0)
-    segmentation = models.ForeignKey(Segmentation, related_name='boxes', on_delete=models.RESTRICT)
+class Polygon(models.Model):
+    segmentation = models.ForeignKey(Segmentation, related_name='polygons', on_delete=models.RESTRICT)
 
     def __str__(self) -> str:
-        return f'Box {self.id}'
-    
+        return f'Polygon {self.id}'
+
+class Point(models.Model):
+    x = models.IntegerField(default=0)
+    y = models.IntegerField(default=0)
+    polygon = models.ForeignKey(Polygon, related_name='points', on_delete=models.RESTRICT)
+
+
 class Correction(models.Model):
     correction = models.JSONField()
     segmentation = models.ForeignKey(Segmentation, on_delete=models.RESTRICT)
