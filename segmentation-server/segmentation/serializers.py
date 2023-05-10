@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Polygon, Segmentation, Correction, Point
+from .models import Polygon, Segmentation, Correction, Point, Image
+
+class ImageUploadSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Image
+        fields = ('image_file', 'image_file_name', 'id')
 
 class PointSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,7 +27,7 @@ class SegmentationSerializer(serializers.ModelSerializer):
     polygons = PolygonSerializer(many=True)
 
     def create(self, validated_data):
-        segmentation = Segmentation.objects.create(image_id=validated_data['image_id'], type=validated_data['type'])
+        segmentation = Segmentation.objects.create(image=validated_data['image'], type=validated_data['type'])
         for polygon in validated_data['polygons']:
             new_polygon = Polygon.objects.create(segmentation=segmentation)
             for point in polygon['points']:
@@ -30,7 +36,7 @@ class SegmentationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Segmentation
-        fields = ['polygons', 'type', 'image_id']
+        fields = ['polygons', 'type', 'image']
 
 
 class CorrectionSerializer(serializers.ModelSerializer):

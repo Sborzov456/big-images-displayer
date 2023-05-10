@@ -1,5 +1,9 @@
 from django.db import models
 
+class Image(models.Model):
+    image_file = models.FileField(upload_to='media/shots/', null=True)
+    image_file_name = models.CharField(max_length=255)
+
 class Type(models.Model):
     name = models.CharField(max_length=30, primary_key=True)
     
@@ -7,14 +11,14 @@ class Type(models.Model):
         return self.name
 
 class Segmentation(models.Model):
-    image_id = models.IntegerField(null=False)
-    type = models.ForeignKey('Type', on_delete=models.RESTRICT)
+    image = models.ForeignKey(Image, on_delete=models.RESTRICT, null=False)
+    type = models.ForeignKey(Type, on_delete=models.RESTRICT)
 
     class Meta:
         unique_together = ['image_id', 'type'] 
     
     def __str__(self) -> str:
-        return f'Image: {self.image_id}; Type: {self.type}; Id: {self.id}'
+        return f'Image: {self.image}; Type: {self.type}; Id: {self.id}'
 
 class Polygon(models.Model):
     segmentation = models.ForeignKey(Segmentation, related_name='polygons', on_delete=models.RESTRICT)
