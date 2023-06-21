@@ -11,14 +11,14 @@ import os
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/upload', methods=['POST'])
-def get_image():
-    image_file = flask.request.files['image']
-    filename = image_file.filename
-    if not filename in os.listdir(UPLOAD_FOLDER):
-        path = os.path.join(UPLOAD_FOLDER, filename)
-        image_file.save(path)
-    return filename
+# @app.route('/upload', methods=['POST'])
+# def get_image():
+#     image_file = flask.request.files['image']
+#     filename = image_file.filename
+#     if not filename in os.listdir(UPLOAD_FOLDER):
+#         path = os.path.join(UPLOAD_FOLDER, filename)
+#         image_file.save(path)
+#     return filename
 
 @app.route('/<path:path>.dzi')
 def dzi(path):

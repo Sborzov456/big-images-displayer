@@ -30,3 +30,6 @@ bid-server/test-img/*
 
 segmentation-server/segmentation/migrations
 segmentation-server/db.sqlite3
+segmentation-server/media
+
+test-img/

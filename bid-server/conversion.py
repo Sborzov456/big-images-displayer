@@ -6,5 +6,6 @@ from openslide.deepzoom import DeepZoomGenerator
 from openslide import OpenSlide
 
 def get_slide(path, options):
+    print(path)
     osr = OpenSlide(path)
     return DeepZoomGenerator(osr, **options)

@@ -9,16 +9,18 @@ const SelectImage = () => {
     const upload = (event) => {
         const file = event.target.files[0]
         const formData = new FormData()
-        formData.append('image', file, file.name)
-
-        fetch('http://localhost:8001/upload', {
+        formData.append('image_file', file)
+        formData.append('image_file_name', file.name)
+        fetch('http://localhost:8000/api/v1/cytology/upload', {
             method: 'POST',
             "Content-Type": "multipart/form-data",
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(result => {
-            dispatch({type: 'UPDATE_IMAGE', payload: result})
+            console.log(result['image_file'])
+            dispatch({type: 'UPDATE_IMAGE', payload: result['image_file_name']})
+            dispatch({type: 'UPDATE_SEGMENTS', payload: result['segmentations']})
         })
     }
 

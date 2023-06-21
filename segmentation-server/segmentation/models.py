@@ -1,7 +1,7 @@
 from django.db import models
 
 class Image(models.Model):
-    image_file = models.FileField(upload_to='media/shots/', null=True)
+    image_file = models.FileField(upload_to='shots/', null=True)
     image_file_name = models.CharField(max_length=255)
 
 class Type(models.Model):

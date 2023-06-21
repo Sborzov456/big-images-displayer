@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import OpenSeaDragon from "openseadragon";
 import '../styles/style.css'
-import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 

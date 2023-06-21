@@ -1,0 +1,73 @@
+{
+    "image_file": "http://localhost:8000/media/media/shots/test3_62NKhAe.svs",
+    "image_file_name": "test3.svs",
+    "id": 4,
+    "segmentations": [
+        {
+            "polygons": [
+                {
+                    "points": [
+                        {
+                            "x": 4075,
+                            "y": 7707
+                        },
+                        {
+                            "x": 3863,
+                            "y": 7542
+                        },
+                        {
+                            "x": 8596,
+                            "y": 7059
+                        }
+                    ]
+                }
+            ],
+            "type": "a",
+            "image": 4
+        },
+        {
+            "polygons": [
+                {
+                    "points": [
+                        {
+                            "x": 4242,
+                            "y": 5363
+                        },
+                        {
+                            "x": 8174,
+                            "y": 7343
+                        },
+                        {
+                            "x": 5992,
+                            "y": 2312
+                        }
+                    ]
+                }
+            ],
+            "type": "b",
+            "image": 4
+        },
+        {
+            "polygons": [
+                {
+                    "points": [
+                        {
+                            "x": 7493,
+                            "y": 2305
+                        },
+                        {
+                            "x": 9279,
+                            "y": 1436
+                        },
+                        {
+                            "x": 3476,
+                            "y": 7278
+                        }
+                    ]
+                }
+            ],
+            "type": "c",
+            "image": 4
+        }
+    ]
+}

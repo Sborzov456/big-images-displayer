@@ -34,10 +34,10 @@ class SegmentationAPIView(APIView):
         image_id = request.query_params['image_id']
         type = request.query_params['type']
         if type == 'all':
-            segmentations = Segmentation.objects.all().filter(image_id=image_id)
+            segmentations = Segmentation.objects.all().filter(image=image_id)
             serializer = SegmentationSerializer(segmentations, many=True)
         else:
-            segmentations = Segmentation.objects.all().filter(image_id=image_id, type=type)
+            segmentations = Segmentation.objects.all().filter(image=image_id, type=type)
             serializer = SegmentationSerializer(segmentations, many=True)
         return Response({'segmentations' : serializer.data})
      

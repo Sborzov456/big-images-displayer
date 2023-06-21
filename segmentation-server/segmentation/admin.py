@@ -18,16 +18,16 @@ class PointAdmin(admin.ModelAdmin):
 
 @admin.register(Polygon)
 class PolygonAdmin(admin.ModelAdmin):
-    list_display = ('segmentation', 'get_type', 'get_image_id')
+    list_display = ('id', 'segmentation', 'get_type', 'get_image_id')
     search_fields = ['segmentation__id']
 
     @admin.display(ordering='segmentation__type', description='Type')
     def get_type(self, obj):
         return obj.segmentation.type
     
-    @admin.display(ordering='segmentation__image_id', description='Image ID')
+    @admin.display(ordering='segmentation__image', description='Image ID')
     def get_image_id(self, obj):
-        return obj.segmentation.image__id
+        return obj.segmentation.image
 
 
 @admin.register(Type)

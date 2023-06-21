@@ -1,7 +1,8 @@
 
 const defaultState = {
     image: '',
-    viewer: null
+    viewer: null,
+    segments: []
 }
 
 const imageReducer = (state=defaultState, action) => {
@@ -10,6 +11,8 @@ const imageReducer = (state=defaultState, action) => {
             return {...state, image: action.payload}
         case 'SET_VIEWER':
             return {...state, viewer: action.payload}
+        case 'UPDATE_SEGMENTS':
+            return {...state, segments: action.payload}
         default:
             return state
     }
