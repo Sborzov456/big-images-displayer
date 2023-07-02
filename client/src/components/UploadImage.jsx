@@ -11,7 +11,7 @@ const SelectImage = () => {
         const formData = new FormData()
         formData.append('image_file', file)
         formData.append('image_file_name', file.name)
-        fetch('http://localhost:8000/api/v1/cytology/upload', {
+        fetch('http://localhost:8007/api/v1/cytology/upload', {
             method: 'POST',
             "Content-Type": "multipart/form-data",
             body: formData

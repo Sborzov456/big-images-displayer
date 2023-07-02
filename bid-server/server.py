@@ -40,6 +40,6 @@ def tile(path, level, col, row, format):
 
 
 if __name__ == '__main__':
-    app.run(port=8001, debug=True)
+    app.run(port=8005, debug=True)
 
 

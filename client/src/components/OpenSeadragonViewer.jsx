@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import OpenSeaDragon from "openseadragon";
 import '../styles/style.css'
-import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -35,6 +34,7 @@ const OpenSeadragonViewer = () => {
 
     useEffect(() => {
         if (image) {
+            console.log('VIEWER INIT!!!!')
             initializeViewer()
         }
     },[image]);

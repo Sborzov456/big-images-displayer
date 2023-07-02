@@ -1,10 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import * as Annotorious from '@recogito/annotorious-openseadragon';
-import SelectorPack from '@recogito/annotorious-selector-pack'
-import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 import { useSelector } from 'react-redux';
 import annotationCreator from '../utils/AnnotationCreator';
+import './annotorious.min.css'
 
 const Drawer = () => {
     const [anno, setAnno] = useState(null)
